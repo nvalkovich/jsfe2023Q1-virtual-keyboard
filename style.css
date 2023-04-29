@@ -1,0 +1,71 @@
+.keyboard-wrapper {
+  width: 730px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.keyboard-wrapper__title {
+  text-align: center;
+}
+
+.textarea {
+  border: 1px solid black;
+  height: 100px;
+}
+
+.keyboard {
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #FFF8DC;
+}
+
+.btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3px;
+  border-radius: 5px;
+  background-color: #F5DEB3;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #D2B48C;
+}
+
+.btn-backspace {
+  width: 100px;
+}
+
+.btn-space {
+  width: 326px;
+}
+
+.btn-tab {
+  width: 50px;
+}
+
+.btn-del {
+  width: 43px;
+}
+
+.btn-caps,
+.btn-shift,
+.btn-enter {
+  width: 94px;
+}
+
+.btn-ctrl {
+  width: 46px;
+}
+
+.keyboard-wrapper__description {
+  max-width:55%;
+  margin: 0 auto;
+}
