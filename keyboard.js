@@ -13,27 +13,51 @@ class Keyboard {
 
   mousedownHandler(e) {
     if (!e.target.classList.contains('btn')) return;
-
-    const button = this.buttons.find((b) => b.code === e.target.id);
-    button.down();
-    this.callback(button);
+    this.handleDown(e.target.id);
   }
 
   mouseupHandler() {
     this.buttons.forEach((b) => b.up());
+    this.hideShift();
   }
 
   keydownHandler(e) {
     e.preventDefault();
-    const button = this.buttons.find((b) => b.code === e.code);
-    button.down();
-    this.callback(button);
+    this.handleDown(e.code);
   }
 
   keyupHandler(e) {
     e.preventDefault();
     const button = this.buttons.find((b) => b.code === e.code);
     button.up();
+    this.hideShift();
+  }
+
+  handleDown(code) {
+    const button = this.buttons.find((b) => b.code === code);
+    button.down();
+
+    switch (code) {
+      case 'ShiftLeft':
+      case 'ShiftRight':
+        this.buttons.forEach((b) => b.displayShift());
+        break;
+      case 'Enter':
+        this.callback({ value: '\n' });
+        break;
+      case 'Backspace':
+        this.callback({ removePrev: true });
+        break;
+      case 'Delete':
+        this.callback({ removeNext: true });
+        break;
+      default:
+        this.callback({ value: button.en });
+    }
+  }
+
+  hideShift() {
+    this.buttons.forEach((b) => b.hideShift());
   }
 
   createElement() {

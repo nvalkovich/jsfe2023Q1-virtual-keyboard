@@ -9,23 +9,38 @@ class Textarea {
     this.position = this.element.selectionStart;
   }
 
-  handleButtonClick(button) {
+  handleButtonClick({ value, removePrev, removeNext }) {
     this.element.focus();
-    switch (button.code) {
-      case 'Enter':
-        this.addSymbol('\n');
-        break;
-      default:
-        this.addSymbol(button.en);
+    if (value) {
+      this.addSymbol(value);
+    } else if (removePrev) {
+      this.removePrevSymbol();
+    } else if (removeNext) {
+      this.removeNextSymbol();
     }
-    this.position += 1;
-    this.element.selectionStart = this.position;
-    this.element.selectionEnd = this.position;
   }
 
   addSymbol(symbol) {
     const { value } = this.element;
     this.element.value = value.slice(0, this.position) + symbol + value.slice(this.position);
+    this.position += 1;
+    this.element.selectionStart = this.position;
+    this.element.selectionEnd = this.position;
+  }
+
+  removePrevSymbol() {
+    const { value } = this.element;
+    this.element.value = value.slice(0, this.position - 1) + value.slice(this.position);
+    this.position -= 1;
+    this.element.selectionStart = this.position;
+    this.element.selectionEnd = this.position;
+  }
+
+  removeNextSymbol() {
+    const { value } = this.element;
+    this.element.value = value.slice(0, this.position) + value.slice(this.position + 1);
+    this.element.selectionStart = this.position;
+    this.element.selectionEnd = this.position;
   }
 
   static createElement() {
