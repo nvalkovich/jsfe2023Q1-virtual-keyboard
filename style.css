@@ -1,5 +1,11 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .keyboard-wrapper {
-  width: 730px;
+  width: 706px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -12,7 +18,16 @@
 
 .textarea {
   border: 1px solid black;
-  height: 100px;
+  min-height: 100px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.textarea:focus {
+  border-color: #FFF8DC;
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(245, 222, 179, 0.60);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .keyboard {
@@ -20,6 +35,7 @@
   display: flex;
   flex-wrap: wrap;
   background-color: #FFF8DC;
+  border-radius: 5px;
 }
 
 .btn {
@@ -39,12 +55,17 @@
   background-color: #D2B48C;
 }
 
+.btn:active {
+  box-shadow: 0 0 0 2px rgba(210, 180, 140, 0.43);
+  border-radius: 5px;
+}
+
 .btn-backspace {
   width: 100px;
 }
 
 .btn-space {
-  width: 326px;
+  width: 310px;
 }
 
 .btn-tab {
@@ -58,14 +79,15 @@
 .btn-caps,
 .btn-shift,
 .btn-enter {
-  width: 94px;
+  width: 92px;
 }
 
-.btn-ctrl {
+.btn-ctrl,
+.btn-win {
   width: 46px;
 }
 
 .keyboard-wrapper__description {
-  max-width:55%;
+  max-width: 55%;
   margin: 0 auto;
 }

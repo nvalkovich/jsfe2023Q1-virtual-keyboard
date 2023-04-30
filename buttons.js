@@ -55,7 +55,7 @@ const buttons = [
   { code: 'ArrowUp', en: '&#9650;', classNames: ['btn-arrow', 'btn-arrow_up'] },
   { code: 'ShiftRight', en: 'Shift', classNames: ['btn-shift', 'btn-shift_right'] },
   { code: 'ControlLeft', en: 'Ctrl', classNames: ['btn-ctrl', 'btn-ctrl_left'] },
-  { code: 'MetaLeft', en: 'Win' },
+  { code: 'MetaLeft', en: 'Win', classNames: ['btn-win'] },
   { code: 'AltLeft', en: 'Alt' },
   { code: 'Space', en: ' ', classNames: ['btn-space'] },
   { code: 'AltRight', en: 'Alt' },

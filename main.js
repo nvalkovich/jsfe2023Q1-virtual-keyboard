@@ -1,33 +1,5 @@
 import buttons from './buttons.js';
-
-class Button {
-  constructor({
-    code,
-    en,
-    ru,
-    classNames,
-  }) {
-    this.code = code;
-    this.en = en;
-    this.ru = ru || en;
-    this.classNames = classNames || [];
-  }
-
-  toHtml() {
-    const button = document.createElement('div');
-    button.className = 'btn';
-    button.innerHTML = this.en;
-    this.classNames.forEach((element) => {
-      button.classList.add(element);
-    });
-
-    return button;
-  }
-
-  addOnClickEventListener(callback) {
-    this.callback = callback;
-  }
-}
+import Button from './button.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const keyboardWrapper = document.createElement('div');
@@ -39,8 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   title.innerHTML = 'RSS Виртуальная клавиатура';
   keyboardWrapper.append(title);
 
-  const textArea = document.createElement('input');
-  textArea.type = 'text';
+  const textArea = document.createElement('textarea');
   textArea.className = 'textarea';
   keyboardWrapper.append(textArea);
 
