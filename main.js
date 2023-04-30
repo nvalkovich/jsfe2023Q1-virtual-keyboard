@@ -1,4 +1,4 @@
-import buttons from './buttons.js';
+import buttons from './config.js';
 import Button from './button.js';
 
 document.addEventListener('DOMContentLoaded', () => {
