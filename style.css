@@ -55,11 +55,6 @@
   background-color: #D2B48C;
 }
 
-.btn:active {
-  box-shadow: 0 0 0 2px rgba(210, 180, 140, 0.43);
-  border-radius: 5px;
-}
-
 .btn-backspace {
   width: 100px;
 }
@@ -90,4 +85,10 @@
 .keyboard-wrapper__description {
   max-width: 55%;
   margin: 0 auto;
+}
+
+.btn-down{
+  background-color: rgba(210, 180, 140);
+  box-shadow: 0 0 0 2px rgba(210, 180, 140, 0.43);
+  border-radius: 5px;
 }

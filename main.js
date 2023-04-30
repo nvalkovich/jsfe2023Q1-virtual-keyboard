@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addOnClickEventListener((value) => {
       textArea.value += value;
     });
-    keyBoard.append(button.toHtml());
+    keyBoard.append(button.element);
   }
 
   const description = document.createElement('p');
