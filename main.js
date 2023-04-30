@@ -1,4 +1,5 @@
 import Keyboard from './keyboard.js';
+import Textarea from './textarea.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const keyboardWrapper = document.createElement('div');
@@ -10,16 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
   title.innerHTML = 'RSS Виртуальная клавиатура';
   keyboardWrapper.append(title);
 
-  const textArea = document.createElement('textarea');
-  textArea.className = 'textarea';
-  keyboardWrapper.append(textArea);
-
+  const textarea = new Textarea();
   const keyboard = new Keyboard();
-  keyboardWrapper.append(keyboard.createElement());
 
-  keyboard.onButtonClick((b) => {
-    textArea.value += b.en;
-  });
+  keyboard.onButtonClick(textarea.handleButtonClick.bind(textarea));
+
+  keyboardWrapper.append(textarea.element);
+  keyboardWrapper.append(keyboard.element);
 
   const description = document.createElement('p');
   description.className = 'keyboard-wrapper__description';

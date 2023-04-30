@@ -8,6 +8,7 @@ class Keyboard {
     document.addEventListener('mouseup', this.mouseupHandler.bind(this));
     document.addEventListener('keydown', this.keydownHandler.bind(this));
     document.addEventListener('keyup', this.keyupHandler.bind(this));
+    this.element = this.createElement();
   }
 
   mousedownHandler(e) {
