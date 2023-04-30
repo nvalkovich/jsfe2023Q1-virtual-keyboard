@@ -1,5 +1,4 @@
-import buttons from './config.js';
-import Button from './button.js';
+import Keyboard from './keyboard.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const keyboardWrapper = document.createElement('div');
@@ -15,17 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
   textArea.className = 'textarea';
   keyboardWrapper.append(textArea);
 
-  const keyBoard = document.createElement('div');
-  keyBoard.className = 'keyboard';
-  keyboardWrapper.append(keyBoard);
+  const keyboard = new Keyboard();
+  keyboardWrapper.append(keyboard.createElement());
 
-  for (let i = 0; i < buttons.length; i += 1) {
-    const button = new Button(buttons[i]);
-    button.addOnClickEventListener((value) => {
-      textArea.value += value;
-    });
-    keyBoard.append(button.element);
-  }
+  keyboard.onButtonClick((b) => {
+    textArea.value += b.en;
+  });
 
   const description = document.createElement('p');
   description.className = 'keyboard-wrapper__description';

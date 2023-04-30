@@ -1,4 +1,4 @@
-const buttons = [
+const config = [
   { code: 'Backquote', en: '`' },
   { code: 'Digit1', en: '1' },
   { code: 'Digit2', en: '2' },
@@ -65,4 +65,4 @@ const buttons = [
   { code: 'ControlRight', en: 'Ctrl', classNames: ['btn-ctrl', 'btn-ctrl_right'] },
 ];
 
-export default buttons;
+export default config;
