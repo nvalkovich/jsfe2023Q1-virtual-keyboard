@@ -39,20 +39,15 @@ class Button {
     this.element.classList.remove('btn-down');
   }
 
-  displayShift() {
-    if (this.hasShift) {
-      this.element.innerText = this.enShift;
-    } else if (!this.isSpecial) {
-      this.element.innerText = this.en.toUpperCase();
+  setState({ lang, shiftKey }) {
+    if (shiftKey && this.hasShift) {
+      this.state = this[`${lang}Shift`];
+    } else if (shiftKey && !this.hasShift && !this.isSpecial) {
+      this.state = this[lang].toUpperCase();
+    } else {
+      this.state = this[lang];
     }
-  }
-
-  hideShift() {
-    if (this.hasShift) {
-      this.element.innerText = this.en;
-    } else if (!this.isSpecial) {
-      this.element.innerText = this.en.toLowerCase();
-    }
+    this.element.innerText = this.state;
   }
 }
 

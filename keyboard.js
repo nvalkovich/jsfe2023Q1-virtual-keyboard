@@ -16,9 +16,16 @@ class Keyboard {
     this.handleDown(e.target.id);
   }
 
-  mouseupHandler() {
-    this.buttons.forEach((b) => b.up());
-    this.hideShift();
+  mouseupHandler(e) {
+    this.buttons.forEach((b) => {
+      if (e.shiftKey && (b.code === 'ShiftLeft' || b.code === 'ShiftLeft')) {
+        return;
+      }
+      b.up();
+    });
+    if (!e.shiftKey) {
+      this.hideShift();
+    }
   }
 
   keydownHandler(e) {
@@ -30,7 +37,9 @@ class Keyboard {
     e.preventDefault();
     const button = this.buttons.find((b) => b.code === e.code);
     button.up();
-    this.hideShift();
+    if (!e.shiftKey) {
+      this.hideShift();
+    }
   }
 
   handleDown(code) {
@@ -40,7 +49,7 @@ class Keyboard {
     switch (code) {
       case 'ShiftLeft':
       case 'ShiftRight':
-        this.buttons.forEach((b) => b.displayShift());
+        this.buttons.forEach((b) => b.setState({ lang: 'en', shiftKey: true }));
         break;
       case 'Enter':
         this.callback({ value: '\n' });
@@ -52,12 +61,12 @@ class Keyboard {
         this.callback({ removeNext: true });
         break;
       default:
-        this.callback({ value: button.en });
+        this.callback({ value: button.state });
     }
   }
 
   hideShift() {
-    this.buttons.forEach((b) => b.hideShift());
+    this.buttons.forEach((b) => b.setState({ lang: 'en', shiftKey: false }));
   }
 
   createElement() {
