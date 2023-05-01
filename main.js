@@ -1,5 +1,5 @@
-import Keyboard from './keyboard.js';
-import Textarea from './textarea.js';
+import Keyboard from './modules/keyboard.js';
+import Textarea from './modules/textarea.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const keyboardWrapper = document.createElement('div');
