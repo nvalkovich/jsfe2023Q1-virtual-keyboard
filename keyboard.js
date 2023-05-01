@@ -78,6 +78,9 @@ class Keyboard {
       case 'AltRight':
       case 'MetaLeft':
         break;
+      case 'Tab':
+        this.callback({ value: '\t' });
+        break;
       default:
         this.callback({ value: button.state });
     }
