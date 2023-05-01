@@ -21,6 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const description = document.createElement('p');
   description.className = 'keyboard-wrapper__description';
-  description.innerHTML = 'Клавиатура создана в операционной системе Windows. Для переключения языка комбинация: .....';
+  description.innerHTML = 'Клавиатура создана в операционной системе Windows. Для переключения языка комбинация: левые ctrl + alt';
   keyboardWrapper.append(description);
 });

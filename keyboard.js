@@ -3,7 +3,12 @@ import config from './config.js';
 
 class Keyboard {
   constructor() {
+    this.lang = localStorage.getItem('lang');
+    if (!this.lang) {
+      this.toggleLang();
+    }
     this.buttons = config.map((c) => new Button(c));
+    this.buttons.forEach((b) => b.setState({ lang: this.lang }));
     document.addEventListener('mousedown', this.mousedownHandler.bind(this));
     document.addEventListener('mouseup', this.mouseupHandler.bind(this));
     document.addEventListener('keydown', this.keydownHandler.bind(this));
@@ -11,9 +16,14 @@ class Keyboard {
     this.element = this.createElement();
   }
 
+  toggleLang() {
+    this.lang = this.lang === 'en' ? 'ru' : 'en';
+    localStorage.setItem('lang', this.lang);
+  }
+
   mousedownHandler(e) {
     if (!e.target.classList.contains('btn')) return;
-    this.handleDown(e.target.id);
+    this.handleDown(e.target.id, e.ctrlKey);
   }
 
   mouseupHandler(e) {
@@ -30,7 +40,7 @@ class Keyboard {
 
   keydownHandler(e) {
     e.preventDefault();
-    this.handleDown(e.code);
+    this.handleDown(e.code, e.ctrlKey);
   }
 
   keyupHandler(e) {
@@ -42,14 +52,17 @@ class Keyboard {
     }
   }
 
-  handleDown(code) {
+  handleDown(code, ctrlKey) {
     const button = this.buttons.find((b) => b.code === code);
     button.down();
 
     switch (code) {
+      case 'AltLeft':
+        (() => { if (ctrlKey) { this.toggleLang(); } })();
+        break;
       case 'ShiftLeft':
       case 'ShiftRight':
-        this.buttons.forEach((b) => b.setState({ lang: 'en', shiftKey: true }));
+        this.buttons.forEach((b) => b.setState({ lang: this.lang, shiftKey: true }));
         break;
       case 'Enter':
         this.callback({ value: '\n' });
@@ -60,13 +73,18 @@ class Keyboard {
       case 'Delete':
         this.callback({ removeNext: true });
         break;
+      case 'ControlLeft':
+      case 'ControlRight':
+      case 'AltRight':
+      case 'MetaLeft':
+        break;
       default:
         this.callback({ value: button.state });
     }
   }
 
   hideShift() {
-    this.buttons.forEach((b) => b.setState({ lang: 'en', shiftKey: false }));
+    this.buttons.forEach((b) => b.setState({ lang: this.lang, shiftKey: false }));
   }
 
   createElement() {
