@@ -49,6 +49,7 @@ class Keyboard {
   keyupHandler(e) {
     e.preventDefault();
     const button = this.buttons.find((b) => b.code === e.code);
+    if (!button) return;
     button.up();
     this.buttons.forEach((b) => b.setState({
       lang: this.lang, shiftKey: e.shiftKey, caps: this.caps,
@@ -57,6 +58,7 @@ class Keyboard {
 
   handleDown(code, ctrlKey) {
     const button = this.buttons.find((b) => b.code === code);
+    if (!button) return;
     button.down();
     switch (code) {
       case 'AltLeft':
