@@ -85,7 +85,7 @@ class Keyboard {
       case 'MetaLeft':
         break;
       case 'Tab':
-        this.callback({ value: '\t' });
+        this.callback({ value: '    ' });
         break;
       case 'CapsLock':
         this.caps = !this.caps;
