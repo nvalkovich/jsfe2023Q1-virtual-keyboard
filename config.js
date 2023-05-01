@@ -80,13 +80,13 @@ const config = [
   {
     code: 'Backspace',
     en: 'Backspace',
-    classNames: ['btn-backspace'],
+    classNames: ['btn_special', 'btn-backspace'],
     isSpecial: true,
   },
   {
     code: 'Tab',
     en: 'Tab',
-    classNames: ['btn-tab'],
+    classNames: ['btn_special', 'btn-tab'],
     isSpecial: true,
   },
   {
@@ -160,13 +160,13 @@ const config = [
   {
     code: 'Delete',
     en: 'Del',
-    classNames: ['btn-del'],
+    classNames: ['btn_special', 'btn-del'],
     isSpecial: true,
   },
   {
     code: 'CapsLock',
     en: 'CapsLock',
-    classNames: ['btn-caps'],
+    classNames: ['btn_special', 'btn-caps'],
     isSpecial: true,
   },
   {
@@ -229,13 +229,13 @@ const config = [
   {
     code: 'Enter',
     en: 'Enter',
-    classNames: ['btn-enter'],
+    classNames: ['btn_special', 'btn-enter'],
     isSpecial: true,
   },
   {
     code: 'ShiftLeft',
     en: 'Shift',
-    classNames: ['btn-shift', 'btn-shift_left'],
+    classNames: ['btn_special', 'btn-shift', 'btn-shift_left'],
     isSpecial: true,
   },
   {
@@ -295,61 +295,63 @@ const config = [
   {
     code: 'ArrowUp',
     en: '▲',
-    classNames: ['btn-arrow', 'btn-arrow_up'],
+    classNames: ['btn_special', 'btn-arrow', 'btn-arrow_up'],
   },
   {
     code: 'ShiftRight',
     en: 'Shift',
-    classNames: ['btn-shift', 'btn-shift_right'],
+    classNames: ['btn_special', 'btn-shift', 'btn-shift_right'],
     isSpecial: true,
   },
   {
     code: 'ControlLeft',
     en: 'Ctrl',
-    classNames: ['btn-ctrl', 'btn-ctrl_left'],
+    classNames: ['btn_special', 'btn-ctrl', 'btn-ctrl_left'],
     isSpecial: true,
   },
   {
     code: 'MetaLeft',
     en: 'Win',
-    classNames: ['btn-win'],
+    classNames: ['btn_special', 'btn-win'],
     isSpecial: true,
   },
   {
     code: 'AltLeft',
     en: 'Alt',
+    classNames: ['btn_special'],
     isSpecial: true,
   },
   {
     code: 'Space',
     en: ' ',
-    classNames: ['btn-space'],
+    classNames: ['btn_special', 'btn-space'],
     isSpecial: true,
   },
   {
     code: 'AltRight',
     en: 'Alt',
+    classNames: ['btn_special'],
     isSpecial: true,
   },
   {
     code: 'ArrowLeft',
     en: '◄',
-    classNames: ['btn-arrow', 'btn-arrow_left'],
+    classNames: ['btn_special', 'btn-arrow', 'btn-arrow_left'],
   },
   {
     code: 'ArrowDown',
     en: '▼',
-    classNames: ['btn-arrow', 'btn-arrow_down'],
+    classNames: ['btn_special', 'btn-arrow', 'btn-arrow_down'],
   },
   {
     code: 'ArrowRight',
     en: '►',
-    classNames: ['btn-arrow', 'btn-arrow_right'],
+    classNames: ['btn_special', 'btn-arrow', 'btn-arrow_right'],
   },
   {
     code: 'ControlRight',
     en: 'Ctrl',
-    classNames: ['btn-ctrl', 'btn-ctrl_right'],
+    classNames: ['btn_special', 'btn-ctrl', 'btn-ctrl_right'],
     isSpecial: true,
   },
 ];

@@ -24,35 +24,43 @@
 }
 
 .textarea:focus {
-  border-color: #FFF8DC;
   outline: 0;
-  box-shadow: 0 0 0 2px rgba(245, 222, 179, 0.60);
+  box-shadow: 0 0 0 2px rgba(47, 79, 79, 0.262);
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .keyboard {
-  border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
-  background-color: #FFF8DC;
+  background-color: #A9A9A9;
   border-radius: 5px;
+  padding-bottom: 5px;
 }
 
 .btn {
+  color: white;
   width: 40px;
   height: 40px;
-  border: 1px solid black;
   display: flex;
+  font-size: 18px;
   align-items: center;
   justify-content: center;
   margin: 3px;
   border-radius: 5px;
-  background-color: #F5DEB3;
+  background-color: #696969;
   cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.90);
 }
 
 .btn:hover {
-  background-color: #D2B48C;
+  background-color: #2f4f4fbb;
+}
+
+.btn_special {
+  font-size: 15px;
+  background-color: #484747;
 }
 
 .btn-backspace {
@@ -88,7 +96,7 @@
 }
 
 .btn-down{
-  background-color: rgba(210, 180, 140);
-  box-shadow: 0 0 0 2px rgba(210, 180, 140, 0.43);
-  border-radius: 5px;
+  transform: translateY(1.5px);
+  background-color: #439b9b !important;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.90);
 }

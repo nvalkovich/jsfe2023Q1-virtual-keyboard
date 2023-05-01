@@ -23,13 +23,14 @@ class Textarea {
   addSymbol(symbol) {
     const { value } = this.element;
     this.element.value = value.slice(0, this.position) + symbol + value.slice(this.position);
-    this.position += 1;
+    this.position += symbol.length;
     this.element.selectionStart = this.position;
     this.element.selectionEnd = this.position;
   }
 
   removePrevSymbol() {
     const { value } = this.element;
+    if (this.position === 0) return;
     this.element.value = value.slice(0, this.position - 1) + value.slice(this.position);
     this.position -= 1;
     this.element.selectionStart = this.position;
