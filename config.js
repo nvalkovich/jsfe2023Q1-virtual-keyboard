@@ -2,6 +2,7 @@ const config = [
   {
     code: 'Backquote',
     en: '`',
+    ru: 'ё',
     enShift: '~',
     ruShift: 'Ё',
   },
@@ -237,6 +238,7 @@ const config = [
     en: 'Shift',
     classNames: ['btn_special', 'btn-shift', 'btn-shift_left'],
     isSpecial: true,
+    isCaps: false,
   },
   {
     code: 'KeyZ',
