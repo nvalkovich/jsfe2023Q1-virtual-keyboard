@@ -39,7 +39,7 @@ class Button {
     this.element.classList.remove('btn-down');
   }
 
-  setState({ lang, shiftKey }) {
+  setState({ lang, shiftKey, caps }) {
     if (shiftKey && this.hasShift) {
       this.state = this[`${lang}Shift`];
     } else if (shiftKey && !this.hasShift && !this.isSpecial) {
@@ -47,7 +47,16 @@ class Button {
     } else {
       this.state = this[lang];
     }
+
+    if (!this.isSpecial && caps) {
+      this.state = this.state.toUpperCase();
+    }
+
     this.element.innerText = this.state;
+
+    if (this.code === 'CapsLock' && caps) {
+      this.down();
+    }
   }
 }
 

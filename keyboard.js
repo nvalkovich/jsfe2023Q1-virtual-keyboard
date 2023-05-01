@@ -7,6 +7,7 @@ class Keyboard {
     if (!this.lang) {
       this.toggleLang();
     }
+    this.caps = false;
     this.buttons = config.map((c) => new Button(c));
     this.buttons.forEach((b) => b.setState({ lang: this.lang }));
     document.addEventListener('mousedown', this.mousedownHandler.bind(this));
@@ -33,9 +34,11 @@ class Keyboard {
       }
       b.up();
     });
-    if (!e.shiftKey) {
-      this.hideShift();
-    }
+    this.buttons.forEach((b) => b.setState({
+      lang: this.lang,
+      shiftKey: e.shiftKey,
+      caps: this.caps,
+    }));
   }
 
   keydownHandler(e) {
@@ -47,22 +50,25 @@ class Keyboard {
     e.preventDefault();
     const button = this.buttons.find((b) => b.code === e.code);
     button.up();
-    if (!e.shiftKey) {
-      this.hideShift();
-    }
+    this.buttons.forEach((b) => b.setState({
+      lang: this.lang, shiftKey: e.shiftKey, caps: this.caps,
+    }));
   }
 
   handleDown(code, ctrlKey) {
     const button = this.buttons.find((b) => b.code === code);
     button.down();
-
     switch (code) {
       case 'AltLeft':
         (() => { if (ctrlKey) { this.toggleLang(); } })();
         break;
       case 'ShiftLeft':
       case 'ShiftRight':
-        this.buttons.forEach((b) => b.setState({ lang: this.lang, shiftKey: true }));
+        this.buttons.forEach((b) => b.setState({
+          lang: this.lang,
+          shiftKey: true,
+          caps: this.caps,
+        }));
         break;
       case 'Enter':
         this.callback({ value: '\n' });
@@ -81,13 +87,13 @@ class Keyboard {
       case 'Tab':
         this.callback({ value: '\t' });
         break;
+      case 'CapsLock':
+        this.caps = !this.caps;
+        this.buttons.forEach((b) => b.setState({ lang: this.lang, caps: this.caps }));
+        break;
       default:
         this.callback({ value: button.state });
     }
-  }
-
-  hideShift() {
-    this.buttons.forEach((b) => b.setState({ lang: this.lang, shiftKey: false }));
   }
 
   createElement() {
