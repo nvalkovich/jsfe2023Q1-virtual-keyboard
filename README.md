@@ -1,5 +1,5 @@
 1. [Task](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/virtual-keyboard/virtual-keyboard-en.md)
-2. [Deploy](https://nvalkovich.github.io/virtual-keyboard/)
+2. [Deploy](https://nvalkovich.github.io/jsfe2023Q1-virtual-keyboard/)
 3. Screenshot: 
 ![image](https://user-images.githubusercontent.com/105563182/235539389-4c90ad53-654e-454e-a97c-97ebe4730c01.png)
 -  Minimal scope
